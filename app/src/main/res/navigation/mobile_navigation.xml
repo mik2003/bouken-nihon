@@ -11,17 +11,23 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
-    <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.mik2003.boukennihon.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_dashboard"-->
+<!--        android:name="com.mik2003.boukennihon.ui.dashboard.DashboardFragment"-->
+<!--        android:label="@string/title_dashboard"-->
+<!--        tools:layout="@layout/fragment_dashboard" />-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_notifications"-->
+<!--        android:name="com.mik2003.boukennihon.ui.notifications.NotificationsFragment"-->
+<!--        android:label="@string/title_notifications"-->
+<!--        tools:layout="@layout/fragment_notifications" />-->
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.mik2003.boukennihon.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_locations"
+        android:name="com.mik2003.boukennihon.ui.locations.LocationsFragment"
+        android:label="Locations"
+        tools:layout="@layout/fragment_locations" />
 
     <fragment
         android:id="@+id/navigation_map"
