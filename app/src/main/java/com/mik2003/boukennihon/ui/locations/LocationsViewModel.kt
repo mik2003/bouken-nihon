@@ -12,10 +12,15 @@ class LocationsViewModel : ViewModel() {
     val locationsWithDistance: LiveData<List<LocationWithDistance>> = _locationsWithDistance
 
     fun setLocationsWithDistances(locationsList: LocationsList, distancesMap: Map<String, Double>) {
-        val locationsWithDistances = locationsList.map { location ->
-            val distance = String.format("%.1f", distancesMap[location.name]) + " km"
-            LocationWithDistance(location, distance)
-        }
+        val locationsWithDistances = locationsList.mapNotNull { location ->
+            distancesMap[location.name]?.let { distance ->
+                Pair(location, distance)
+            }
+        }.sortedBy { it.second }
+            .map { (location, distance) ->
+                val formattedDistance = "%.1f km".format(distance)
+                LocationWithDistance(location, formattedDistance)
+            }
         _locationsWithDistance.value = locationsWithDistances
     }
 }
