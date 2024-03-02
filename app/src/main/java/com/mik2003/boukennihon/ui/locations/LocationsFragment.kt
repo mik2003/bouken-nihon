@@ -14,6 +14,8 @@ import com.mik2003.boukennihon.R
 import com.mik2003.boukennihon.core.LocationUtils
 import com.mik2003.boukennihon.core.Coordinate
 
+import android.util.Log
+
 class LocationsFragment : Fragment() {
 
     private var _binding: FragmentLocationsBinding? = null
@@ -59,6 +61,7 @@ class LocationsFragment : Fragment() {
         // Request location permission if not granted
         LocationUtils.getLastKnownLocation(requireContext(),
             onSuccess = { location ->
+                Log.d("Location", "YES")
                 // Location retrieved successfully, now parse KML and update ViewModel
                 val currentCoordinate = Coordinate(location.latitude, location.longitude)
                 val distancesMap = locationsList.distancesFromCurrentLocation(currentCoordinate)
@@ -72,6 +75,7 @@ class LocationsFragment : Fragment() {
                 }
             },
             onFailure = {
+                Log.d("Location", "NO")
                 // Handle failure to retrieve location or permission denied
                 locationsViewModel.setLocations(locationsList)
             }
