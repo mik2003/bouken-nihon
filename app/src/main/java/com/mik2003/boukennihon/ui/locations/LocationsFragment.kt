@@ -45,9 +45,9 @@ class LocationsFragment : Fragment() {
         }
 
         // Observe locations from ViewModel
-        locationsViewModel.locations.observe(viewLifecycleOwner) { locations ->
+        locationsViewModel.locationsWithDistance.observe(viewLifecycleOwner) { locationsWithDistance ->
             // Update UI accordingly
-            locationsAdapter.submitList(locations)
+            locationsAdapter.submitList(locationsWithDistance)
         }
 
 
@@ -70,14 +70,11 @@ class LocationsFragment : Fragment() {
                     // Distance data is available, set locations with distances
                     locationsViewModel.setLocationsWithDistances(locationsList, distancesMap)
                 } else {
-                    // No distance data available, set locations only
-                    locationsViewModel.setLocations(locationsList)
+                    Log.d("Location", "NO")
                 }
             },
             onFailure = {
                 Log.d("Location", "NO")
-                // Handle failure to retrieve location or permission denied
-                locationsViewModel.setLocations(locationsList)
             }
         )
 
