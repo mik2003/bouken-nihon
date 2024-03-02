@@ -50,6 +50,12 @@ class Location(val name: String, val coordinates: Coordinate) {
 
         return true
     }
+
+    override fun hashCode(): Int {
+        var result = name.hashCode()
+        result = 31 * result + coordinates.hashCode()
+        return result
+    }
 }
 
 class LocationsList : ArrayList<Location>() {
