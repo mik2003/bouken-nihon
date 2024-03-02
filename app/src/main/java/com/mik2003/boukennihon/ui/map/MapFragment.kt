@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import android.webkit.WebView
 import com.mik2003.boukennihon.databinding.FragmentMapBinding
 
 class MapFragment : Fragment() {
@@ -22,16 +22,14 @@ class MapFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val mapViewModel =
-            ViewModelProvider(this).get(MapViewModel::class.java)
 
         _binding = FragmentMapBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textMap
-        mapViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+        val webView: WebView = binding.webView
+
+        webView.loadUrl("https://www.google.com/maps/d/edit?mid=18yINesZ0_bjv9w6DCQT6PmHRiph5eRM&usp=sharing")
+
         return root
     }
 

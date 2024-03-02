@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="900dp"
+    android:height="900dp"
+    android:viewportWidth="900"
+    android:viewportHeight="900">
+
+    <!-- White background circle with diameter 900 -->
+    <path
+        android:pathData="M450,450m-450,0a450,450 0 1,0 900,0a450,450 0 1,0 -900,0"
+        android:fillColor="#FFFFFF"/>
+
+    <!-- Red circle with increased radius -->
+    <path
+        android:pathData="M450,450m-270,0a270,270 0 1,0 540,0a270,270 0 1,0 -540,0"
+        android:fillColor="#BC002D"/>
+</vector>
