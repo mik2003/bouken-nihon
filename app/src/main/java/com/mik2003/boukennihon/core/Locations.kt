@@ -41,6 +41,12 @@ class Location(val name: String, val coordinates: Coordinate) {
         throw IllegalArgumentException("Unsupported type for distance calculation")
     }
 
+    override fun hashCode(): Int {
+        var result = name.hashCode()
+        result = 31 * result + coordinates.hashCode()
+        return result
+    }
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Location) return false

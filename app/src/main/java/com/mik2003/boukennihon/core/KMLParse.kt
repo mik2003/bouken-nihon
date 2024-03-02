@@ -48,7 +48,6 @@ class ParseKML {
                                 }
                                 // Reset variables
                                 placemarkName = null
-                                name = null
                                 coordinates = null
                             }
                         }
