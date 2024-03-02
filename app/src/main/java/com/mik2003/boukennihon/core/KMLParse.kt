@@ -17,7 +17,7 @@ class ParseKML {
                 parser.setInput(stream, null)
 
                 var eventType = parser.eventType
-                var name: String? = null
+                var name: String?
                 var placemarkName: String? = null  // Variable to store the <Placemark> name
                 var coordinates: Pair<Double, Double>? = null
 
